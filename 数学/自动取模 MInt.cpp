@@ -1,5 +1,5 @@
 template<class T>
-constexpr T power(T a, ll b) {
+constexpr T ksm(T a, ll b) {
 	T res = 1;
 	while (b) {
 		if (b & 1) res *= a;

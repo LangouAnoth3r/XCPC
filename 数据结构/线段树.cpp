@@ -1,4 +1,4 @@
-template<typename Int>
+template<class Int>
 struct Tag {
     Int v = 0;
     void operator+=(const Tag<Int> &o) {
@@ -9,7 +9,7 @@ struct Tag {
     }
 };
 
-template<typename Int>
+template<class Int>
 struct Info {
     Int val = 0;
     int l, r;
@@ -28,7 +28,7 @@ struct Info {
     }
 };
 
-template<typename Int>
+template<class Int>
 class SegTree {
 private:
     vector<Info<Int>> info;
@@ -46,7 +46,7 @@ private:
         print(rs(x), mid + 1, r);
     }
 
-    template<typename Array>
+    template<class Array>
     void build(int x, int l, int r, Array &data) {
         if (l == r) {
             info[x].l = l;
@@ -111,7 +111,7 @@ public:
         print(1, 1, n);
     }
 
-    template<typename Array>
+    template<class Array>
     void build(Array &data) {
         build(1, 1, n, data);
     }

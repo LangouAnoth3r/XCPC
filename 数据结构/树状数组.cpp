@@ -1,10 +1,14 @@
-template<typename Int>
+template<class Int>
 struct BIT {
     vector<Int> a;
     int n;
 
     BIT() {}
     BIT(int n) {
+        init(n);
+    }
+
+    void init(int n) {
         this->n = n;
         a.resize(n + 1);
     }
@@ -15,8 +19,8 @@ struct BIT {
         }
     }
 
-    void add(int x, int y, int k) {
-        add(x, k), add(y, -k);
+    void add(int x, int y, Int k) {
+        add(x, k), add(y + 1, -k);
     }
 
     Int ask(int x) {
@@ -32,9 +36,9 @@ struct BIT {
     }
 
     Int kth(int k) {
-        int ans = 0;
+        Int ans = 0;
         for (int i = __lg(n); i >= 0; i--) {
-            int val = ans + (1 << i);
+            Int val = ans + (1 << i);
             if (val < n && a[val] < k) {
                 k -= a[val];
                 ans = val;

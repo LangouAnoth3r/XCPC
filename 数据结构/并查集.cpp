@@ -1,5 +1,5 @@
 struct DSU {
-    vector<int> f, siz;
+    vector<Int> f, siz;
 
     DSU() {}
     DSU(int n) {
